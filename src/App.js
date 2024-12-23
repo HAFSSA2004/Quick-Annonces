@@ -9,7 +9,7 @@ import Footer from './Footer';
 import ItemInformation from './ItemInformation';
 import AddAds from './AddAds';
 //import Api from './Api';
-
+//<Footer/>
 function App() {
   return (
     <div>
@@ -20,7 +20,7 @@ function App() {
         <Route path="/iteminformation" element={<ItemInformation />} />
         <Route path="/addads" element={<AddAds />} />
       </Routes>
-      <Footer/>
+      
     </div>
   );
 }

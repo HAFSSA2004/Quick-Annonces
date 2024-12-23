@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link for routing
 import "./Footer.css"; // Create and link a CSS file for styles
 import { FaTwitter, FaLinkedin, FaFacebook } from "react-icons/fa"; // FontAwesome Icons
 
@@ -12,9 +11,9 @@ function Footer() {
         <div className="footer-section">
           <h4>Company</h4>
           <ul>
-            <li><Link to="/about-us">About Us</Link></li>
-            <li><Link to="/solutions">Solutions</Link></li>
-            <li><Link to="/insights">Insights</Link></li>
+            <li><button className="footer-link">About Us</button></li>
+            <li><button className="footer-link">Solutions</button></li>
+            <li><button className="footer-link">Insights</button></li>
           </ul>
         </div>
 
@@ -22,12 +21,12 @@ function Footer() {
         <div className="footer-section">
           <h4>Categories</h4>
           <ul>
-            <li><Link to="/hire-talent">Hire Talent</Link></li>
-            <li><Link to="/develop-talent">Develop Talent</Link></li>
-            <li><Link to="/gamification-tools">Gamification Tools</Link></li>
-            <li><Link to="/digital-skills">Digital Skills</Link></li>
-            <li><Link to="/commercial-skills">Commercial Skills</Link></li>
-            <li><Link to="/leadership">Leadership</Link></li>
+            <li><button className="footer-link">Hire Talent</button></li>
+            <li><button className="footer-link">Develop Talent</button></li>
+            <li><button className="footer-link">Gamification Tools</button></li>
+            <li><button className="footer-link">Digital Skills</button></li>
+            <li><button className="footer-link">Commercial Skills</button></li>
+            <li><button className="footer-link">Leadership</button></li>
           </ul>
         </div>
       </div>
@@ -36,22 +35,16 @@ function Footer() {
       <div className="footer-bottom">
         {/* Social Media Links */}
         <div className="social-media">
-          <a href="javascript:void(0)" className="social-icon">
-            <FaTwitter />
-          </a>
-          <a href="javascript:void(0)" className="social-icon">
-            <FaLinkedin />
-          </a>
-          <a href="javascript:void(0)" className="social-icon">
-            <FaFacebook />
-          </a>
+          <button className="social-icon" aria-label="Twitter"><FaTwitter /></button>
+          <button className="social-icon" aria-label="LinkedIn"><FaLinkedin /></button>
+          <button className="social-icon" aria-label="Facebook"><FaFacebook /></button>
         </div>
 
         {/* Legal Links */}
         <div className="legal-links">
-          <Link to="/privacy-policy">Privacy Policy</Link>
-          <Link to="/terms-conditions">Terms & Conditions</Link>
-          <Link to="/code-of-conduct">Code of Conduct</Link>
+          <button className="footer-link">Privacy Policy</button>
+          <button className="footer-link">Terms & Conditions</button>
+          <button className="footer-link">Code of Conduct</button>
         </div>
       </div>
     </footer>
