@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import ListeCard from './ListeCards';
 import HeaderN from './Navbar';
 import SignUp from './SignUp';
-import Footer from './Footer';
+//import Footer from './Footer';
 import ItemInformation from './ItemInformation';
 import AddAds from './AddAds';
 //import Api from './Api';
