@@ -7,7 +7,9 @@ import HeaderN from './Navbar';
 import SignUp from './SignUp';
 //import Footer from './Footer';
 import ItemInformation from './ItemInformation';
+//import ProductInfo from './AddsP/ProductI';
 import AddAds from './AddAds';
+import Picture from './Picture';
 //import Api from './Api';
 //<Footer/>
 function App() {
@@ -19,7 +21,9 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/iteminformation" element={<ItemInformation />} />
         <Route path="/addads" element={<AddAds />} />
+        <Route path="/picture" element={<Picture />} />
       </Routes>
+  
       
     </div>
   );
