@@ -1,0 +1,48 @@
+.fil {
+    display: flex;
+    gap: 5px; /* Reduce the gap to make filters closer */
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+/* Select container with icon */
+.select-container {
+    position: relative;
+    width: 200px;
+}
+
+.styled-select {
+    width: 100%;
+    padding: 10px 10px 10px 40px; /* Space for the icon */
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    background-color: #f9f9f9;
+    appearance: none; /* Remove default arrow */
+    background-image: none; /* Prevent background image from showing */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Icon styling */
+.select-icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #888;
+}
+
+/* Hover and focus effects */
+.styled-select:hover,
+.styled-select:focus {
+    border-color: #666;
+    background-color: #fff;
+}
+
+.styled-select:focus + .select-icon {
+    color: #333;
+}

@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { Link } from "react-router-dom";
+import { AdsContext } from './AdsContext'; // Import the context
 
 function AddAds() {
+  const { addAd } = useContext(AdsContext); // Get addAd from context
   const [productN, setProductN] = useState('');
   const [category, setCategory] = useState('');
   const [aboutP, setAboutP] = useState('');
@@ -15,6 +17,7 @@ function AddAds() {
       setError(true);
     } else {
       setError(false);
+      addAd({ productN, price }); // Add the ad to context
     }
   };
 

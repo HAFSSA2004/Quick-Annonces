@@ -1,23 +1,32 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import { FaUpload } from "react-icons/fa"; // Import upload icon from react-icons
+import { AdsContext } from './AdsContext'; // Import the context
 
 function Picture() {
-  const [images, setImages] = useState([null, null, null, null]);
+  const { ads, addAd } = useContext(AdsContext); // Get ads and addAd from context
+  const [uploadedImages, setUploadedImages] = useState([null, null, null, null]);
 
-  const handleImageUpload = (index, event) => {
+  const handleFileChange = (index, event) => {
     const file = event.target.files[0];
     if (file) {
-      const newImages = [...images];
-      newImages[index] = URL.createObjectURL(file);
-      setImages(newImages);
+      const updatedImages = [...uploadedImages];
+      updatedImages[index] = file;
+      setUploadedImages(updatedImages);
     }
+  };
+
+  const isAtLeastOneImageUploaded = uploadedImages.some((image) => image !== null);
+  const handleNext = () => {
+    const lastAd = ads[ads.length - 1]; // Get the last ad added
+    const updatedAd = { ...lastAd, image: uploadedImages[0] }; // Assuming you want to use the first uploaded image
+    addAd(updatedAd); // Update the ad in context
   };
 
   return (
     <div className="container mt-4">
       <h1 className="text-center mb-4">Add ADS</h1>
       <div className="d-flex justify-content-center align-items-center">
-        {/* Tabs */}
         <div
           className="tab text-center px-4 py-2 me-2 border rounded"
           style={{
@@ -63,99 +72,54 @@ function Picture() {
         </div>
       </div>
 
-      {/* Four Upload Boxes */}
-      <div className="d-flex justify-content-center gap-5 mt-4">
-        {[0, 1].map((index) => (
+      {/* Four Boxes Section */}
+      <div className="d-flex flex-wrap justify-content-center mt-4">
+        {uploadedImages.map((image, index) => (
           <div
             key={index}
+            className="box  rounded position-relative"
             style={{
-              width: "180px",
-              height: "180px",
-              border: "3px dashed gray",
+              width: "150px",
+              height: "150px",
+              border: "3px dashed black",
+              margin: "10px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              position: "relative",
-              cursor: "pointer",
-              backgroundImage: images[index] ? `url(${images[index]})` : 'none',
-              backgroundSize: "cover",
-              backgroundPosition: "center",
             }}
           >
-            {!images[index] && (
-              <label htmlFor={`upload-${index}`} style={{ cursor: "pointer" }}>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "gray",
-                  }}
-                >
-                  <i
-                    className="bi bi-upload"
-                    style={{ fontSize: "48px", marginBottom: "8px" }} // Increased icon size
-                  ></i>
-                  <span style={{ fontSize: "16px" }}>Upload Picture</span>
-                </div>
-                <input
-                  type="file"
-                  id={`upload-${index}`}
-                  accept="image/*"
-                  style={{ display: "none" }}
-                  onChange={(e) => handleImageUpload(index, e)}
-                />
+            {image ? (
+              <img
+                src={URL.createObjectURL(image)}
+                alt="Uploaded"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: "5px",
+                }}
+              />
+            ) : (
+              <label
+                htmlFor={`file-upload-${index}`}
+                style={{
+                  cursor: "pointer",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <FaUpload size={30} color="grey" />
+                <span style={{ fontSize: "12px" }}>Upload</span>
               </label>
             )}
-          </div>
-        ))}
-      </div>
-
-      <div className="d-flex justify-content-center gap-5 mt-4">
-        {[2, 3].map((index) => (
-          <div
-            key={index}
-            style={{
-              width: "180px",
-              height: "180px",
-              border: "3px dashed gray",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              position: "relative",
-              cursor: "pointer",
-              backgroundImage: images[index] ? `url(${images[index]})` : 'none',
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            {!images[index] && (
-              <label htmlFor={`upload-${index}`} style={{ cursor: "pointer" }}>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "gray",
-                  }}
-                >
-                  <i
-                    className="bi bi-upload"
-                    style={{ fontSize: "48px", marginBottom: "8px" }} // Increased icon size
-                  ></i>
-                  <span style={{ fontSize: "16px" }}>Upload Picture</span>
-                </div>
-                <input
-                  type="file"
-                  id={`upload-${index}`}
-                  accept="image/*"
-                  style={{ display: "none" }}
-                  onChange={(e) => handleImageUpload(index, e)}
-                />
-              </label>
-            )}
+            <input
+              id={`file-upload-${index}`}
+              type="file"
+              accept="image/*"
+              onChange={(e) => handleFileChange(index, e)}
+              style={{ display: "none" }}
+            />
           </div>
         ))}
       </div>
@@ -164,12 +128,14 @@ function Picture() {
         <div className="text-center">
           <Link
             to="/seller-info"
-            className="btn btn-warning"
+            onClick={handleNext} // Call handleNext on click
+            className={`btn btn-warning ${!isAtLeastOneImageUploaded ? "disabled" : ""}`}
             style={{
-              width: "150px",
+              width: "100px",
               color: "white",
               marginBottom: "10px",
               textDecoration: "none",
+              pointerEvents: isAtLeastOneImageUploaded ? "auto" : "none",
             }}
           >
             Next

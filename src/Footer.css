@@ -12,6 +12,7 @@
     flex-wrap: wrap; /* Makes it responsive */
     gap: 20px; /* Adds space for smaller screens */
     margin-bottom: 30px;
+  
   }
   
   .footer-section h4 {
