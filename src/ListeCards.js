@@ -2,10 +2,12 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CardsCategories from "./Cards";
 import './List.css';
+import { useNavigate } from "react-router-dom";
 
 function ListeCard() {
     const { city, category, profils } = useSelector((state) => state);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const filteredProfiles = profils.filter((profil) => {
         return (
@@ -14,8 +16,12 @@ function ListeCard() {
         );
     });
 
+    const handleAddAdClick = () => {
+        navigate("/addads");  // Navigate to add ads page (will redirect if not logged in)
+    };
+
     return (
-        <div className="">
+        <div>
             <div className="fil">
                 <div className="select-container">
                     <i className="fas fa-map-marker-alt select-icon"></i>
@@ -24,7 +30,7 @@ function ListeCard() {
                         className="form-selectc styled-select"
                         onChange={(e) => dispatch({ type: "SET_CITY", payload: e.target.value })}
                     >
-                        <option value="">Filter By City</option>
+                        <option value="">Sort</option>
                         <option value="Tangier">Tangier</option>
                         <option value="Casablanca">Casablanca</option>
                         <option value="Agadir">Agadir</option>
@@ -39,7 +45,7 @@ function ListeCard() {
                         className="form-select styled-select"
                         onChange={(e) => dispatch({ type: "SET_CATEGORY", payload: e.target.value })}
                     >
-                        <option value="">Filter By Category</option>
+                        <option value="">Sort</option>
                         <option value="Electronique">Electronique</option>
                         <option value="skincare">skincare</option>
                         <option value="clothes">clothes</option>
