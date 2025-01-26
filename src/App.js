@@ -9,32 +9,34 @@ import Picture from './Picture';
 import MyAdds from './MyAdds';
 import ProtectedRoute from './ProtectedRoute';  // Import the ProtectedRoute
 import { AuthProvider } from './AuthContext';
-import Admin from './Admin';
-//import Login from './Login';
+import DashboardFinance from './DashboardFinance/DashboardFinance';
+
+import DashboardContextProvider from './context/DashboardContext';  // Ensure the path is correct
+
 
 function App() {
-  // <Route path="/signup" element={<SignUp />} />
   return (
     <AuthProvider>
-    <div>
-      <HeaderN />
+      <DashboardContextProvider>  {/* Wrap your app or specific part of your app */}
+        <div>
+          <HeaderN />
 
-      <Routes>
-        <Route path="/" element={<ListeCard />} />
-       
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/iteminformation" element={<ItemInformation />} />
-        <Route path="/addads" element={ 
-          <ProtectedRoute>
-            <AddAds />
-          </ProtectedRoute>
-        } />
-        <Route path="/picture" element={<Picture />} />
-        <Route path='/seller-info' element={<SellerInfo />} />
-        <Route path='/Myadds' element={<MyAdds />} />
-      </Routes>
-    </div>
+          <Routes>
+            <Route path="/" element={<ListeCard />} />
+            <Route path="/DashboardFinance" element={<DashboardFinance />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/iteminformation" element={<ItemInformation />} />
+            <Route path="/addads" element={ 
+              <ProtectedRoute>
+                <AddAds />
+              </ProtectedRoute>
+            } />
+            <Route path="/picture" element={<Picture />} />
+            <Route path='/seller-info' element={<SellerInfo />} />
+            <Route path='/Myadds' element={<MyAdds />} />
+          </Routes>
+        </div>
+      </DashboardContextProvider>
     </AuthProvider>
   );
 }

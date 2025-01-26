@@ -39,7 +39,7 @@ const SignUp = () => {
     if (validateForm()) {
       login(formData.username);
       if (formData.isAdmin && formData.adminKey === "123") {
-        navigate("/admin");
+        navigate("/DashboardFinance");
       } else {
         navigate("/");
       }
