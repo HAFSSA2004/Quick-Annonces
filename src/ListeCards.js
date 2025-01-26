@@ -2,12 +2,11 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CardsCategories from "./Cards";
 import './List.css';
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
 function ListeCard() {
     const { city, category, profils } = useSelector((state) => state);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const filteredProfiles = profils.filter((profil) => {
         return (
