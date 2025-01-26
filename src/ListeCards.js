@@ -16,9 +16,7 @@ function ListeCard() {
         );
     });
 
-    const handleAddAdClick = () => {
-        navigate("/addads");  // Navigate to add ads page (will redirect if not logged in)
-    };
+    
 
     return (
         <div>
