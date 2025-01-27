@@ -43,11 +43,12 @@ function Picture() {
         </div>
 
         <div
-          className="tab text-center px-4 py-2 me-2 border rounded shadow"
+          className="tab text-center px-4 py-2 bg-white  text-dark me-2 border rounded shadow"
           style={{
             width: "250px",
             height: "60px",
             fontWeight: "bold",
+
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -77,7 +78,7 @@ function Picture() {
         {uploadedImages.map((image, index) => (
           <div
             key={index}
-            className="box  rounded position-relative"
+            className="box bg-white rounded position-relative"
             style={{
               width: "150px",
               height: "150px",
@@ -110,7 +111,7 @@ function Picture() {
                 }}
               >
                 <FaUpload size={30} color="grey" />
-                <span style={{ fontSize: "12px" }}>Upload</span>
+                <span style={{ fontSize: "12px",color:'grey' }}>Upload</span>
               </label>
             )}
             <input

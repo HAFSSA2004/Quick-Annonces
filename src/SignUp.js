@@ -1,118 +1,127 @@
-import React from "react";
-function SignUp(){
-    const [formData, setFormData] = useState({
-        nom: "",
-        prenom: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
-    
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-      };
-    
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        if (formData.password !== formData.confirmPassword) {
-          alert("Les mots de passe ne correspondent pas !");
-          return;
-        }
-        console.log("Formulaire soumis avec succès : ", formData);
-        alert("Inscription réussie !");
-      };
-    
-      return (
-        <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
-          <div className="form-container p-4 shadow rounded bg-white" style={{ width: "100%", maxWidth: "400px" }}>
-            <h2 className="text-center mb-4">Inscription</h2>
-            <form onSubmit={handleSubmit}>
-              {/* Champ Nom */}
-              <div className="mb-3">
-                <label htmlFor="nom" className="form-label">Nom</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="nom"
-                  name="nom"
-                  placeholder="Entrez votre nom"
-                  value={formData.nom}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              {/* Champ Prénom */}
-              <div className="mb-3">
-                <label htmlFor="prenom" className="form-label">Prénom</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="prenom"
-                  name="prenom"
-                  placeholder="Entrez votre prénom"
-                  value={formData.prenom}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              {/* Champ Email */}
-              <div className="mb-3">
-                <label htmlFor="email" className="form-label">Email</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="email"
-                  name="email"
-                  placeholder="Entrez votre email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              {/* Champ Mot de Passe */}
-              <div className="mb-3">
-                <label htmlFor="password" className="form-label">Mot de Passe</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  name="password"
-                  placeholder="Entrez votre mot de passe"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              {/* Champ Confirmation du Mot de Passe */}
-              <div className="mb-3">
-                <label htmlFor="confirmPassword" className="form-label">Confirmer le Mot de Passe</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  placeholder="Confirmez votre mot de passe"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              {/* Boutons */}
-              <div className="mb-3 d-flex justify-content-between">
-                <button type="submit" className="btn btn-primary w-100">S'inscrire</button>
-              </div>
-            </form>
-            <hr />
-            <div className="d-grid gap-2">
-              <button className="btn btn-google" style={{ backgroundColor: "#db4437", color: "white" }}>
-                Continuer avec Google
-              </button>
-              <a href="/admin" className="btn btn-secondary">Se connecter comme Admin</a>
-            </div>
-          </div>
-          </div>
-      );
 
+import React, { useState } from "react";
+import { useAuth } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
+import './SignUp.css';
+
+const SignUp = () => {
+  const { login } = useAuth();
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    isAdmin: false,
+    adminKey: "",
+  });
+
+  const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+
+  const validateForm = () => {
+    let newErrors = {};
+    if (!formData.username) newErrors.username = "Username is required";
+    if (!formData.email) newErrors.email = "Email is required";
+    if (!formData.password) newErrors.password = "Password is required";
+    if (formData.isAdmin && !formData.adminKey) newErrors.adminKey = "Admin key is required";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      login(formData.username);
+      if (formData.isAdmin && formData.adminKey === "123") {
+        navigate("/DashboardFinance");
+      } else {
+        navigate("/");
+      }
+    }
+  };
+
+  return (
+    <div className="signup-container">
+      <h2 className="signup-title">Create an Account</h2>
+      <form onSubmit={handleSubmit} className="signup-form">
+        <div className="form-group">
+          <label>Username</label>
+          <input
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            className={errors.username ? "input-error" : ""}
+            placeholder="Enter your username"
+          />
+          {errors.username && <small className="error-text">{errors.username}</small>}
+        </div>
+
+        <div className="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className={errors.email ? "input-error" : ""}
+            placeholder="Enter your email"
+          />
+          {errors.email && <small className="error-text">{errors.email}</small>}
+        </div>
+
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            className={errors.password ? "input-error" : ""}
+            placeholder="Create a password"
+          />
+          {errors.password && <small className="error-text">{errors.password}</small>}
+        </div>
+
+      
+          <div className="inp">
+          <input
+            type="checkbox"
+            name="isAdmin"
+            checked={formData.isAdmin}
+            onChange={handleChange}
+            className="form-check-input"
+          />
+          <label className="form-check-label" style={{marginTop:'2px',marginLeft:'5px'}}>Sign up as Admin</label>
+          </div>
+
+        {formData.isAdmin && (
+          <div className="form-group">
+            <label>Admin Key</label>
+            <input
+              type="text"
+              name="adminKey"
+              value={formData.adminKey}
+              onChange={handleChange}
+              className={errors.adminKey ? "input-error" : ""}
+              placeholder="Enter the admin key"
+            />
+            {errors.adminKey && <small className="error-text">{errors.adminKey}</small>}
+          </div>
+        )}
+
+        <button type="submit" className="btn-primary">Sign Up</button>
+      </form>
+    </div>
+  );
 };
+
+>>>>>>> d8c26f73b66226dd0447089bc4325e4fb70d40e3
 export default SignUp;

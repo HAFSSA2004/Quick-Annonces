@@ -1,21 +1,24 @@
+/* Select Container */
 .fil {
     display: flex;
-    gap: 5px; /* Reduce the gap to make filters closer */
     justify-content: flex-end;
     margin-top: 20px;
 }
+
 /* Select container with icon */
 .select-container {
     position: relative;
-    width: 200px;
+    width: 150px; /* Adjusted width for better alignment */
+    margin-right: 40px;
 }
 
+/* Styled Select */
 .styled-select {
     width: 100%;
     padding: 10px 10px 10px 40px; /* Space for the icon */
     font-size: 14px;
     border: 1px solid #ccc;
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: #f9f9f9;
     appearance: none; /* Remove default arrow */
     background-image: none; /* Prevent background image from showing */
@@ -24,6 +27,7 @@
     outline: none;
     cursor: pointer;
     font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease; /* Smooth transition for hover/focus effects */
 }
 
 /* Icon styling */
@@ -34,15 +38,23 @@
     transform: translateY(-50%);
     font-size: 16px;
     color: #888;
+    pointer-events: none; /* Prevent icon from interfering with select click */
 }
 
-/* Hover and focus effects */
+/* Hover and Focus effects */
 .styled-select:hover,
 .styled-select:focus {
-    border-color: #666;
+    border-color: #2196F3; /* Blue border on hover/focus */
     background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
 }
 
+/* Focused icon color */
 .styled-select:focus + .select-icon {
-    color: #333;
+    color: #2196F3; /* Change icon color when focused */
+}
+
+/* Custom Arrow (Optional if you want to hide native arrow completely) */
+.styled-select::-ms-expand {
+    display: none; /* For IE */
 }

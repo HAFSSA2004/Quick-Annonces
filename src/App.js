@@ -1,37 +1,43 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Routes, Route } from 'react-router-dom';
 import ListeCard from './ListeCards';
 import HeaderN from './Navbar';
 import SignUp from './SignUp';
 import SellerInfo from './SellerInfo';
-//import Footer from './Footer';
 import ItemInformation from './ItemInformation';
-//import ProductInfo from './AddsP/ProductI';
 import AddAds from './AddAds';
 import Picture from './Picture';
 import MyAdds from './MyAdds';
-//import Api from './Api';
-//<Footer/>
+import ProtectedRoute from './ProtectedRoute';  // Import the ProtectedRoute
+import { AuthProvider } from './AuthContext';
+import DashboardFinance from './DashboardFinance/DashboardFinance';
+
+import DashboardContextProvider from './context/DashboardContext';  // Ensure the path is correct
+
+
 function App() {
   return (
-    <div>
-      <HeaderN />
-      
-      
-      <Routes>
-        <Route path="/" element={<ListeCard />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/iteminformation" element={<ItemInformation />} />
-        <Route path="/addads" element={<AddAds />} />
-        <Route path="/picture" element={<Picture />} />
-        <Route path='/seller-info' element={<SellerInfo/>}/>
-        <Route path='/Myadds' element={<MyAdds/>}/>
-      </Routes>
-  
-      
-    </div>
+    <AuthProvider>
+      <DashboardContextProvider>  {/* Wrap your app or specific part of your app */}
+        <div>
+          <HeaderN />
+
+          <Routes>
+            <Route path="/" element={<ListeCard />} />
+            <Route path="/DashboardFinance" element={<DashboardFinance />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/iteminformation" element={<ItemInformation />} />
+            <Route path="/addads" element={ 
+              <ProtectedRoute>
+                <AddAds />
+              </ProtectedRoute>
+            } />
+            <Route path="/picture" element={<Picture />} />
+            <Route path='/seller-info' element={<SellerInfo />} />
+            <Route path='/Myadds' element={<MyAdds />} />
+          </Routes>
+        </div>
+      </DashboardContextProvider>
+    </AuthProvider>
   );
 }
 

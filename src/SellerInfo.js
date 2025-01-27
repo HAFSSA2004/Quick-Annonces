@@ -21,10 +21,9 @@ function SellerInfo() {
 
   return (
     <div className="container mt-4">
-      <h1 className="text-center mb-4">Add ADS</h1>
-      <div className="d-flex justify-content-center align-items-center">
+      <div className="d-flex ms-2 justify-content-center align-items-center">
         <div
-          className="tab text-center px-4 py-2 me-2  border rounded shadow"
+          className="tab text-center px-4 py-2 me-2 border rounded shadow"
           style={{
             width: "250px",
             height: "60px",
@@ -34,8 +33,6 @@ function SellerInfo() {
             alignItems: "center",
             justifyContent: "center",
           }}
-
-
         >
           1. Product Info
         </div>
@@ -59,6 +56,7 @@ function SellerInfo() {
             width: "250px",
             height: "60px",
             fontWeight: "bold",
+            color: 'black',
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -69,8 +67,15 @@ function SellerInfo() {
       </div>
 
       <form
-        className="container"
-        style={{ width: "71%", marginTop: "20px" }}
+        className="container p-4"
+        style={{
+          width: "69%",
+          marginTop: "20px",
+  
+          border: "2px solid #ddd",  // Added border
+          borderRadius: "10px",       // Rounded corners
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Enhanced shadow
+        }}
         onSubmit={handleSubmit}
       >
         <div className="form-group mb-3">
@@ -82,6 +87,10 @@ function SellerInfo() {
             value={sellerName}
             onChange={(e) => setSellerName(e.target.value)}
             required
+            style={{
+              border: "1px solid #ddd",  // Add border to inputs
+              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)", // Add shadow to inputs
+            }}
           />
         </div>
         <div className="form-group mb-3">
@@ -93,6 +102,10 @@ function SellerInfo() {
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
             required
+            style={{
+              border: "1px solid #ddd",  // Add border to inputs
+              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)", // Add shadow to inputs
+            }}
           />
         </div>
         <div className="form-group mb-3">
@@ -104,6 +117,10 @@ function SellerInfo() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            style={{
+              border: "1px solid #ddd",  // Add border to inputs
+              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)", // Add shadow to inputs
+            }}
           />
         </div>
         <div className="form-group mb-3">
@@ -115,6 +132,10 @@ function SellerInfo() {
             value={city}
             onChange={(e) => setCity(e.target.value)}
             required
+            style={{
+              border: "1px solid #ddd",  // Add border to inputs
+              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)", // Add shadow to inputs
+            }}
           />
         </div>
         <div className="form-group mb-3 ms-3">
@@ -128,7 +149,6 @@ function SellerInfo() {
         </div>
         <div className="form-group mb-3 ms-3">
           <input
-          
             type="checkbox"
             className="form-check-input me-2"
             checked={termsAccepted}
@@ -137,9 +157,8 @@ function SellerInfo() {
           <label>Terms & Conditions</label>
         </div>
         <div className="text-center">
-        <Link
+          <Link
             to="/Myadds"
-         
             className="btn btn-warning"
             style={{
               width: "150px",

@@ -34,6 +34,7 @@ function AddAds() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            color:'black'
           }}
         >
           1. Product Info
@@ -82,7 +83,7 @@ function AddAds() {
         <div className="form-group">
           <label className="form-label">Product Category</label>
           <select
-            className="form-select"
+            className="form-control"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
@@ -116,7 +117,7 @@ function AddAds() {
         <div className="form-group">
           <label className="form-label">Location</label>
           <select
-            className="form-select"
+            className="form-control"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           >
