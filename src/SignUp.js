@@ -123,5 +123,4 @@ const SignUp = () => {
   );
 };
 
->>>>>>> d8c26f73b66226dd0447089bc4325e4fb70d40e3
 export default SignUp;
