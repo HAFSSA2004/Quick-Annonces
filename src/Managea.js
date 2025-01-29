@@ -11,18 +11,9 @@ const Managea = () => {
         
         {/* Sidebar des boutons */}
         <div className="sidebar">
-        <button className="sidebar-button" onClick={() => navigate("/MyActiveAds")}>
-        Manage Adds
-          </button>
-          <button className="sidebar-button">Manage Adds</button>
-          <button className="sidebar-button">Manage Categories</button>
-          <button className="sidebar-button">Manage Cities</button>
-          <button className="sidebar-button" onClick={() => navigate("/ManageValidation")}>
-            Validated Adds
-          </button>
-          <button className="sidebar-button" onClick={() => navigate("/ManageUsers")}>
-          Delete Users
-          </button>
+        <button className="sidebar-button" onClick={() => navigate("/MyActiveAds")}>Manage Adds</button>          
+        <button className="sidebar-button" onClick={() => navigate("/ManageValidation")}>Validated Adds</button>
+        <button className="sidebar-button" onClick={() => navigate("/ManageUsers")}>Delete Users</button>
         </div>
 
         {/* Contenu principal */}
