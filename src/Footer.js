@@ -1,6 +1,5 @@
 import React from "react";
 import "./Footer.css"; // Create and link a CSS file for styles
-import { FaTwitter, FaLinkedin, FaFacebook } from "react-icons/fa"; // FontAwesome Icons
 
 function Footer() {
   return (
