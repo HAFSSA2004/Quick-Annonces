@@ -10,8 +10,14 @@ import MyAdds from './MyAdds';
 import ProtectedRoute from './ProtectedRoute';  // Import the ProtectedRoute
 import { AuthProvider } from './AuthContext';
 import DashboardFinance from './DashboardFinance/DashboardFinance';
-
+import Login from './Login';
 import DashboardContextProvider from './context/DashboardContext';  // Ensure the path is correct
+import Footer from './Footer';
+import Managea from './Managea';
+import ManageValidation from './ManageValidation';
+import ManageUsers from './ManageUsers';
+import MyActiveAds from './MyActiveAds';
+
 
 
 function App() {
@@ -20,11 +26,24 @@ function App() {
       <DashboardContextProvider>  {/* Wrap your app or specific part of your app */}
         <div>
           <HeaderN />
+       
 
           <Routes>
             <Route path="/" element={<ListeCard />} />
             <Route path="/DashboardFinance" element={<DashboardFinance />} />
+            <Route path="/managea" element={<Managea />} />
+            <Route path="/managevalidation" element={<ManageValidation />} />
+            <Route path="/manageUsers" element={<ManageUsers />} />
+            <Route path="/myActiveAds" element={<MyActiveAds />} />
+
+
+            
+
+
+
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+           
             <Route path="/iteminformation" element={<ItemInformation />} />
             <Route path="/addads" element={ 
               <ProtectedRoute>
@@ -34,7 +53,10 @@ function App() {
             <Route path="/picture" element={<Picture />} />
             <Route path='/seller-info' element={<SellerInfo />} />
             <Route path='/Myadds' element={<MyAdds />} />
+            
           </Routes>
+          <br /><br />
+          <Footer />
         </div>
       </DashboardContextProvider>
     </AuthProvider>

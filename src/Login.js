@@ -4,10 +4,10 @@ import { useAuth } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
 import './SignUp.css';
 
-const SignUp = () => {
+const Login = () => {
   const { login } = useAuth();
   const [formData, setFormData] = useState({
-    username: "",
+    
     email: "",
     password: "",
     isAdmin: false,
@@ -27,7 +27,6 @@ const SignUp = () => {
 
   const validateForm = () => {
     let newErrors = {};
-    if (!formData.username) newErrors.username = "Username is required";
     if (!formData.email) newErrors.email = "Email is required";
     if (!formData.password) newErrors.password = "Password is required";
     if (formData.isAdmin && !formData.adminKey) newErrors.adminKey = "Admin key is required";
@@ -49,20 +48,9 @@ const SignUp = () => {
 
   return (
     <div className="signup-container">
-      <h2 className="signup-title">Create an Account</h2>
+      <h2 className="signup-title">Login</h2>
       <form onSubmit={handleSubmit} className="signup-form">
-        <div className="form-group">
-          <label>Username</label>
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            className={errors.username ? "input-error" : ""}
-            placeholder="Enter your username"
-          />
-          {errors.username && <small className="error-text">{errors.username}</small>}
-        </div>
+        
 
         <div className="form-group">
           <label>Email</label>
@@ -99,7 +87,7 @@ const SignUp = () => {
             onChange={handleChange}
             className="form-check-input"
           />
-          <label className="form-check-label" style={{marginTop:'2px',marginLeft:'5px'}}>Sign up as Admin</label>
+          <label className="form-check-label" style={{marginTop:'2px',marginLeft:'5px'}}>Login as Admin</label>
           </div>
 
         {formData.isAdmin && (
@@ -117,19 +105,19 @@ const SignUp = () => {
           </div>
         )}  <br />
 
-        <button type="submit" className="btn c1">Sign Up</button> 
+        <button type="submit" className="btn c1">Login</button> 
       </form><br />
       <button type="button" className="btn-google c1 ">
       
       Continue with Google
       </button>
       <p className="login-redirect">
-      Already have an account?{" "}
+      Don’t have an acount??{" "}
       <span
         className="login-link"
-        onClick={() => navigate("/login")}
+        onClick={() => navigate("/signup")}
       >
-        Login here
+        ?Sign Up  here
       </span>
     </p>
 
@@ -139,4 +127,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Login;

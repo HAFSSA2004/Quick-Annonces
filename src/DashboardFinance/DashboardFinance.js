@@ -24,7 +24,7 @@ const DashboardFinance = () => {
     <div className="global-container mt-5">
       {/* Links to manage announce and dashboard */}
       <div className="links-container" style={{ marginBottom: "20px" }}>
-        <Link to="/manage-announcements" style={{ marginRight: "20px" }}>
+        <Link to="/managea" style={{ marginRight: "20px" }}>
           <button>Manage Announcements</button>
         </Link>
         <Link to="/DashboardFinance" style={{ marginRight: "20px" }}>

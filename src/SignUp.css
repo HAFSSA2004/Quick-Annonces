@@ -4,8 +4,8 @@
   max-width: 480px;
   margin-left: auto;
   margin-right: auto;
-  padding: 50px 40px;
-  background: linear-gradient(135deg, #4c8bf5, #2a3dff);
+  padding: 20px 30px;
+  background-color: rgb(227, 187, 136);
   border-radius: 15px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   color: #fff;
@@ -23,6 +23,8 @@
   text-align: center;
   margin-bottom: 30px;
   font-weight: 600;
+  color:  rgb(160, 100, 40);
+  font-family: 'Courier New', Courier, monospace;
 }
 
 /* Form container */
@@ -54,7 +56,7 @@
 }
 
 .signup-form .form-group input:focus {
-  border-color: #2a3dff;
+  border-color: orange;
   box-shadow: 0 0 8px rgba(42, 61, 255, 0.3);
 }
 
@@ -81,13 +83,12 @@ input[type='checkbox'] {
 
 
 /* SignUp button styling */
-.signup-form button {
+.c1{
   width: 100%;
   height: 50px;
   border-radius: 10px;
   border: none;
-  background: #2a3dff;
-  color: #fff;
+  background-color: rgb(160, 100, 40);  color: #fff;
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
@@ -95,9 +96,17 @@ input[type='checkbox'] {
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.signup-form button:hover {
-  background: #1e2a9e;
+.c1:hover {
+  background: brown;
   transform: translateY(-3px);
+    background-color: rgb(140, 80, 30);
+    transform: translateY(-2px);
+    color: white;
+  }
+  
+.c1:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(160, 100, 40, 0.5);
 }
 
 /* Responsive design */
@@ -110,8 +119,28 @@ input[type='checkbox'] {
     font-size: 24px;
   }
 
-  .signup-form button {
+  .c1 {
     height: 45px;
     font-size: 16px;
   }
 }
+/* Login redirect styling */
+.login-redirect {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.login-redirect .login-link {
+  color: brown;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.login-redirect .login-link:hover {
+  color: brown;
+}
+

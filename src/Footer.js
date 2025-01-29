@@ -4,50 +4,52 @@ import { FaTwitter, FaLinkedin, FaFacebook } from "react-icons/fa"; // FontAweso
 
 function Footer() {
   return (
-    <footer className="footer">
-      {/* Main Footer Content */}
-      <div className="footer-main">
-        {/* Company Section */}
-        <div className="footer-section">
-          <h4>Company</h4>
+    
+    <footer class="footer">
+    
+    <div class="footer-container">
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Empresa</h4>
           <ul>
-            <li><button className="footer-link">About Us</button></li>
-            <li><button className="footer-link">Solutions</button></li>
-            <li><button className="footer-link">Insights</button></li>
+            <li><a href="#">Sobre Nosotros</a></li>
+            <li><a href="#">Soluciones</a></li>
+            <li><a href="#">Insights</a></li>
           </ul>
         </div>
-
-        {/* Categories Section */}
-        <div className="footer-section">
-          <h4>Categories</h4>
+        <div class="footer-column">
+          <h4>Categorías</h4>
           <ul>
-            <li><button className="footer-link">Hire Talent</button></li>
-            <li><button className="footer-link">Develop Talent</button></li>
-            <li><button className="footer-link">Gamification Tools</button></li>
-            <li><button className="footer-link">Digital Skills</button></li>
-            <li><button className="footer-link">Commercial Skills</button></li>
-            <li><button className="footer-link">Leadership</button></li>
+            <li><a href="#">Contratar Talento</a></li>
+            <li><a href="#">Desarrollar Talento</a></li>
+            <li><a href="#">Herramientas de Gamificación</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>&nbsp;</h4>
+          <ul>
+            <li><a href="#">Competencias Digitales</a></li>
+            <li><a href="#">Competencias Comerciales</a></li>
+            <li><a href="#">Liderazgo</a></li>
           </ul>
         </div>
       </div>
-
-      {/* Footer Bottom Section */}
-      <div className="footer-bottom">
-        {/* Social Media Links */}
-        <div className="social-media">
-          <button className="social-icon" aria-label="Twitter"><FaTwitter /></button>
-          <button className="social-icon" aria-label="LinkedIn"><FaLinkedin /></button>
-          <button className="social-icon" aria-label="Facebook"><FaFacebook /></button>
+  
+      <div class="footer-bottom">
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
         </div>
-
-        {/* Legal Links */}
-        <div className="legal-links">
-          <button className="footer-link">Privacy Policy</button>
-          <button className="footer-link">Terms & Conditions</button>
-          <button className="footer-link">Code of Conduct</button>
+        <div class="footer-policy">
+          <a href="#">Política de Privacidad</a>
+          <a href="#">Términos y Condiciones</a>
+          <a href="#">Código de Conducta</a>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
+  
   );
 }
 

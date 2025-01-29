@@ -1,53 +1,50 @@
-/* General Navbar Styling */
+/* Navbar Général */
 .navbar {
     background: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
-
+   
 }
 
-/* Logo Styling */
+/* Logo agrandi */
 .navbar-logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: 140px;  
+    height: 140px;
     transition: transform 0.3s ease;
 }
 .navbar-logo:hover {
     transform: scale(1.1);
 }
 
-/* Navbar Title */
-.navbar-title {
-    font-size: 24px;
-    padding-left: 5px;
-    padding-top: 5px;
-    font-weight: bold;
-    color: #f4a62a;
-    font-family: 'Poppins', sans-serif;
-}
-
-/* Navbar Buttons */
-.navbar-nav {
+/* Conteneur pour bien centrer la recherche */
+.search-container {
+    flex-grow: 1;
     display: flex;
-    gap: 15px;
+    justify-content: center;
 }
 
-.nav-item .btn {
-    font-size: 16px;
-    font-weight: 500;
-    padding: 8px 20px;
-    border-radius: 25px;
-    transition: all 0.3s ease-in-out;
+/* Barre de recherche bien centrée */
+.search-bar {
+    width: 450px;  /* Ajuster la largeur */
+    display: flex;
+    align-items: center;
+}
+.search-bar .form-control {
+    border-radius: 20px 0 0 20px;
+    padding: 6px 12px;
+    font-size: 14px;
+}
+.search-bar .btn {
+    border-radius: 0 20px 20px 0;
+    padding: 6px 12px;
+    font-size: 14px;
 }
 
-/* Sign-Up Button */
+/* Boutons */
 .sign {
     color: #f4a62a;
     border: 2px solid #f4a62a;
     background: transparent;
     font-weight: bold;
-    transition: all 0.3s ease;
 }
 .sign:hover {
     color: #fff;
@@ -55,7 +52,6 @@
     border-color: #f4a62a;
 }
 
-/* Add Ads Button */
 .btn-warning {
     background: #ff9900;
     border: none;
@@ -65,20 +61,19 @@
     background: #e68300;
 }
 
-/* Responsive Navbar */
+/* Responsive */
+@media (max-width: 992px) {
+    .search-bar {
+        width: 250px;
+    }
+}
 @media (max-width: 768px) {
     .navbar {
-        padding: 15px;
+        flex-direction: column;
+        text-align: center;
     }
-    .navbar-title {
-        font-size: 20px;
-    }
-    .navbar-logo {
-        width: 40px;
-        height: 40px;
-    }
-    .nav-item .btn {
-        padding: 6px 15px;
-        font-size: 14px;
+    .search-container {
+        width: 100%;
+        margin-top: 10px;
     }
 }
