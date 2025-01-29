@@ -18,11 +18,9 @@ const ManageValidation = () => {
         {/* Sidebar */}
         <div className="col-12 col-md-3 p-3">
           <div className="d-flex flex-column align-items-start">
-            <button className="btn btn-secondary w-100 mb-2">Manage my Ads</button>
-            <button className="btn btn-secondary w-100 mb-2">Manage Categories</button>
-            <button className="btn btn-secondary w-100 mb-2">Manage Cities</button>
+            <button className="btn btn-secondary w-100 mb-2">Manage my Ads</button>            <button className="btn btn-secondary w-100 mb-2">Manage Cities</button>
             <button className="btn btn-warning w-100 mb-2">Validated Ads</button>
-            <button className="btn btn-light w-100">Delete Users</button>
+            <button className="btn btn-secondary w-100">Delete Users</button>
           </div>
         </div>
 
