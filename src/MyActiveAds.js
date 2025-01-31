@@ -1,7 +1,7 @@
 import React from "react";
 import { FaTrash } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useSelector, useDispatch } from "react-redux";
+import {  useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { INITIAL_STATE } from "./Reducers/Filter";
 
