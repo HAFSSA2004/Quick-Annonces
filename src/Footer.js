@@ -9,7 +9,8 @@ function Footer() {
         <div className="row">
           <div className="col-md-3 footer-section">
             <h5>Company</h5>
-            <p><a href="https://facebook.com">About Us</a></p>
+            <p><a href="https://facebook.com"></a></p>
+            <p><button></button>About Us</p>
             <p><a href="https://facebook.com">Our Services</a></p>
             <p><a href="https://facebook.com">Privacy Policy</a></p>
           </div>

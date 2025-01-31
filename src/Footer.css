@@ -13,6 +13,11 @@ footer {
   margin-bottom: 75px; /* Space between sections */
 
 }
+footer a{
+  color: aliceblue;
+  text-decoration: none;
+  
+}
 .footer-section h5 {
   font-weight: bold;
   margin-bottom: 20px; /* Space below section title */
