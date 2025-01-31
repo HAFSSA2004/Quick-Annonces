@@ -9,25 +9,25 @@ function Footer() {
         <div className="row">
           <div className="col-md-3 footer-section">
             <h5>Company</h5>
-            <p><a href="#">About Us</a></p>
-            <p><a href="#">Our Services</a></p>
-            <p><a href="#">Privacy Policy</a></p>
+            <p><a href="https://facebook.com">About Us</a></p>
+            <p><a href="https://facebook.com">Our Services</a></p>
+            <p><a href="https://facebook.com">Privacy Policy</a></p>
           </div>
           <div className="col-md-3 footer-section">
             <h5>Online Shop</h5>
-            <p><a href="#">Watch</a></p>
-            <p><a href="#">Bags</a></p>
-            <p><a href="#">Shoes</a></p>
-            <p><a href="#">Dress</a></p>
-            <p><a href="#">Skincare</a></p>
+            <p><a href="https://facebook.com">Watch</a></p>
+            <p><a href="https://facebook.com">Bags</a></p>
+            <p><a href="https://facebook.com">Shoes</a></p>
+            <p><a href="https://facebook.com">Dress</a></p>
+            <p><a href="https://facebook.com">Skincare</a></p>
           </div>
           <div className="col-md-3 footer-section">
             <h5>Get Help</h5>
-            <p><a href="#">FAQ</a></p>
-            <p><a href="#">Shopping</a></p>
-            <p><a href="#">Returns</a></p>
-            <p><a href="#">Order Status</a></p>
-            <p><a href="#">Payment Options</a></p>
+            <p><a href="https://facebook.com">FAQ</a></p>
+            <p><a href="https://facebook.com">Shopping</a></p>
+            <p><a href="https://facebook.com">Returns</a></p>
+            <p><a href="https://facebook.com">Order Status</a></p>
+            <p><a href="https://facebook.com">Payment Options</a></p>
           </div>
           <div className="col-md-3 footer-section">
             <h5>Follow Us</h5>
