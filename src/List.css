@@ -1,4 +1,39 @@
-/* Select Container */
+.language-toggle {
+    position: absolute;
+    top: 200px; /* Adjust this value to set the image's vertical position */
+    right: 20px; /* Adjust this value to set the image's horizontal position */
+    cursor: pointer;
+    z-index: 10; /* Ensure it is above other content */
+}
+
+.language-toggle img {
+    width: 50px;
+    height: auto;
+    border-radius: 25px;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+}
+
+.banner-image {
+    width: 100%;
+    display: block;
+}
+
+.banner-text {
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
 .fil {
     display: flex;
     justify-content: flex-end;

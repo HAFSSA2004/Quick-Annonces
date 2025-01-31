@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom'; // Import BrowserRouter
 import { Provider } from 'react-redux';
 import store from './store';
 import { AdsProvider } from './AdsContext'; // Import the AdsProvider
+import { LanguageProvider } from './LanguageContext'; // Import LanguageProvider
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +15,9 @@ root.render(
     <React.StrictMode>
       <BrowserRouter>
         <AdsProvider>
-          <App />
+          <LanguageProvider> {/* Wrap the app with LanguageProvider */}
+            <App />
+          </LanguageProvider>
         </AdsProvider>
       </BrowserRouter>
     </React.StrictMode>

@@ -1,3 +1,4 @@
+// AuthContext.js
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -12,8 +13,9 @@ export const AuthProvider = ({ children }) => {
   const login = () => {
     localStorage.setItem("auth", "true");
     setIsAuthenticated(true);
-    navigate("/add-ad"); // Redirect to add ads page after login
+    navigate("/addads"); // Ensure this matches the correct path
   };
+  
 
   const logout = () => {
     localStorage.removeItem("auth");

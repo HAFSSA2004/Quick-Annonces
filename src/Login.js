@@ -37,14 +37,15 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      login(formData.username);
+      login();  // No need to pass formData.username here
       if (formData.isAdmin && formData.adminKey === "123") {
         navigate("/DashboardFinance");
       } else {
-        navigate("/");
+        navigate("/"); // Default redirect after login
       }
     }
   };
+  
 
   return (
     <div className="signup-container">
