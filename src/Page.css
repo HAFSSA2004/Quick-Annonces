@@ -1,0 +1,59 @@
+
+        .hero-title {
+            margin-top: 20px;
+            font-size: 3rem; /* Large font size for the title */
+            font-weight: bold;
+            font-style: normal;
+            margin-bottom: 0.5rem;
+            margin-left: 100px;
+            -webkit-text-stroke: 2px black; /* stroke size and color */
+            color:white; /* text fill color */
+        }
+
+        .hero-subtitle {
+            font-size: 3rem; /* Large font size for the title */
+            font-weight: bold;
+            font-style: normal;
+            margin-bottom: 0.5rem;
+            margin-left: 70px;
+            -webkit-text-stroke: 2px black; /* stroke size and color */
+            color:white; /* text fill color */
+        }
+
+        .search-bar {
+            overflow: hidden;
+            width: 50%; /* Set width to 50% */
+            margin-left:0px; /* Center the search bar */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+         
+        }
+        .search-bar input {
+            border: none;
+            outline: none;
+            padding: 10px 15px;
+        }
+        .search-bar .input-group-text {
+            background-color: transparent;
+            border: none;
+            padding-right: 15px;
+        }
+        .search-bar .form-control {
+            border-radius: 5px; /* Ensure all sides are rounded */
+        }
+        
+        
+
+        .filter-container {
+            display: flex;
+            justify-content: en;
+            gap: 20px; /* Spacing between filter dropdowns */
+            margin-top: 1rem; /* Space above filters */
+        }
+        .filter-dropdown {
+            border-radius: 25px; /* Rounded corners for dropdowns */
+            padding: 10px 20px; /* Padding inside the dropdown */
+            border: 1px solid rgba(255, 255, 255, 0.7); /* Light border */
+            /*background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+            color:black; /* White text color */
+            /* White text color */
+        }

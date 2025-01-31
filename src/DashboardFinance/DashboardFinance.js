@@ -22,15 +22,29 @@ const DashboardFinance = () => {
 
   return (
     <div className="global-container mt-5">
+
+
+      
       {/* Links to manage announce and dashboard */}
-      <div className="links-container" style={{ marginBottom: "20px" }}>
-        <Link to="/managea" style={{ marginRight: "20px" }}>
-          <button>Manage Announcements</button>
-        </Link>
-        <Link to="/DashboardFinance" style={{ marginRight: "20px" }}>
-          <button>Manage Dashboard</button>
-        </Link>
-      </div>
+      <div
+  className="links-container"
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    gap: "20px",
+    marginBottom: "30px",
+    padding: "10px 0",
+  }}
+>
+  <Link to="/managea">
+    <button className="cute-button p-3 bg-primary text-white " >Manage Announcements</button>
+  </Link>
+  <Link to="/DashboardFinance">
+    <button className="cute-button p-3 bg-primary  text-white">Manage Dashboard</button>
+  </Link>
+</div>
+
+      
 
       <h1>Dashboard des Annonces</h1>
 

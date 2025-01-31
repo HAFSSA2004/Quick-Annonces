@@ -1,7 +1,39 @@
 const INITIAL_STATE = {
     city: "",
     category: "",
-    ads: [], // Initial ads state
+    ads: [
+        {
+            image: "hair.jpg",
+            title: "Hair Stylist",
+            location: "Marrakech",
+            description: "Providing trendy haircuts and styling services.",
+            price: "150 DH", // Haircut and styling
+            categorie: 'skincare'
+        },
+        {
+            image: "shoes.jpg",
+            title: "Footwear Designer",
+            location: "Tangier",
+            description: "Crafting innovative and stylish shoe designs.",
+            price: "800 DH", // Designer shoes
+            categorie: 'shoes'
+        },
+        {
+            image: "watch.jpg",
+            title: "Watchmaker",
+            location: "Rabat",
+            description: "Expert in repairing and creating luxury watches.",
+            price: "2000 DH", // Luxury watch service
+        },
+        {
+            image: "jacket.png",
+            title: "Fashion Designer",
+            location: "Tangier",
+            description: "Designing elegant and modern outerwear.",
+            price: "600 DH", // Fashionable jacket
+            categorie: 'clothes'
+        }
+    ], // Initial ads state
     profils: [
         {
             image: "laptop.jpg",
@@ -98,6 +130,8 @@ const INITIAL_STATE = {
         }
     ]
 };
+export { INITIAL_STATE };
+
 
 
 export default function Filter(state = INITIAL_STATE, action) {
@@ -108,17 +142,18 @@ export default function Filter(state = INITIAL_STATE, action) {
         case "SET_CATEGORY":
             return { ...state, category: action.payload };
 
-        case "UPDATE_AD": {
-            const updatedProfiles = state.profils.map((ad) =>
-                ad.productN === action.payload.productN ? { ...ad, ...action.payload.data } : ad
-            );
-            return { ...state, profils: updatedProfiles };
-        }
-
-        case "DELETE_AD": {
-            const filteredProfiles = state.profils.filter((ad) => ad.productN !== action.payload.productN);
-            return { ...state, profils: filteredProfiles };
-        }
+            case "UPDATE_AD": {
+                const updatedProfiles = state.profils.map((ad) =>
+                  ad.id === action.payload.id ? { ...ad, ...action.payload.data } : ad
+                );
+                return { ...state, profils: updatedProfiles };
+              }
+              
+              case "DELETE_AD": {
+                const filteredProfiles = state.profils.filter((ad) => ad.id !== action.payload.id);
+                return { ...state, profils: filteredProfiles };
+              }
+              
 
         default:
             return state;

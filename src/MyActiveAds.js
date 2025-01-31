@@ -1,26 +1,29 @@
 import React from "react";
 import { FaTrash } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { INITIAL_STATE } from "./Reducers/Filter";
 
-const ads = [
-  { id: 1, name: "Black sneakers", color: "Black", size: "43", price: "20$", status: "Active", image: "https://via.placeholder.com/50" },
-  { id: 2, name: "Watch", color: "Black", price: "20$", status: "Active", image: "https://via.placeholder.com/50" },
-  { id: 3, name: "Glasses", color: "Black", price: "20$", status: "Active", image: "https://via.placeholder.com/50" },
-  { id: 4, name: "Bag", color: "Brown", price: "20$", status: "Active", image: "https://via.placeholder.com/50" },
-];
 
 const MyActiveAds = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const ads = INITIAL_STATE.profils;
+
+  const handleDelete = (id) => {
+    dispatch({ type: "DELETE_AD", payload: { productN: id } });
+  };
+
   return (
     <div className="container-fluid">
       <div className="row flex-wrap">
-        
         {/* Sidebar */}
         <div className="col-12 col-md-3 p-3">
           <div className="d-flex flex-column align-items-start">
-            <button className="btn btn-warning w-100 mb-2">Manage my Ads</button>
-
-            <button className="btn btn-light w-100 mb-2">Validated Ads</button>
-            <button className="btn btn-light w-100">Delete Users</button>
+          <button className="sidebar-button" onClick={() => navigate("/MyActiveAds")}>Manage Adds</button>          
+        <button className="sidebar-button" onClick={() => navigate("/ManageValidation")}>Validated Adds</button>
+        <button className="sidebar-button" onClick={() => navigate("/ManageUsers")}>Delete Users</button>
           </div>
         </div>
 
@@ -44,7 +47,8 @@ const MyActiveAds = () => {
                   <tr key={ad.id}>
                     <td>
                       <div className="d-flex align-items-center">
-                        <img src={ad.image} alt="Product" className="rounded me-2" />
+                        <img src={ad.image} alt="Product" className=" img-fluid w-25 rounded me-2" />
+
                         <div>
                           <strong>{ad.name}</strong>
                           <br />
@@ -55,7 +59,7 @@ const MyActiveAds = () => {
                     <td>{ad.price}</td>
                     <td className="text-success">{ad.status}</td>
                     <td>
-                      <button className="btn btn-danger btn-sm">
+                      <button className="btn btn-danger btn-sm" onClick={() => handleDelete(ad.id)}>
                         <FaTrash />
                       </button>
                     </td>

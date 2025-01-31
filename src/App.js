@@ -17,6 +17,8 @@ import Managea from './Managea';
 import ManageValidation from './ManageValidation';
 import ManageUsers from './ManageUsers';
 import MyActiveAds from './MyActiveAds';
+import Categories from './Categories';
+import Page from './Page';
 
 
 
@@ -26,6 +28,9 @@ function App() {
       <DashboardContextProvider>  {/* Wrap your app or specific part of your app */}
         <div>
           <HeaderN />
+          <Page />
+          <Categories />
+
        
 
           <Routes>

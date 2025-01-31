@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaTrash } from "react-icons/fa";
 import "./ManageUsers.css";
+import { useNavigate } from "react-router-dom";
 
 const users = [
   { id: "A1234557", adds: 10, date: "12/08/2024", status: "Active" },
@@ -11,7 +12,9 @@ const users = [
   { id: "A1234561", adds: 3, date: "12/08/2024", status: "Not Active" },
 ];
 
+
 const ManageUsers = () => {
+  const navigate = useNavigate();
   return (
     <div className="container-fluid">
       <div className="row flex-wrap">
@@ -19,10 +22,9 @@ const ManageUsers = () => {
         {/* Sidebar */}
         <div className="col-12 col-md-3 p-3">
           <div className="d-flex flex-column align-items-start">
-            <button className="btn btn-light w-100 mb-2">Manage my Ads</button>
-            
-            <button className="btn btn-light w-100 mb-2">Validated Ads</button>
-            <button className="btn btn-warning w-100">Delete Users</button>
+          <button className="sidebar-button" onClick={() => navigate("/MyActiveAds")}>Manage Adds</button>          
+        <button className="sidebar-button" onClick={() => navigate("/ManageValidation")}>Validated Adds</button>
+        <button className="sidebar-button" onClick={() => navigate("/ManageUsers")}>Delete Users</button>
           </div>
         </div>
 
