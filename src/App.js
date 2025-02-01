@@ -28,7 +28,7 @@ function App() {
       <DashboardContextProvider>  {/* Wrap your app or specific part of your app */}
         <div>
           <HeaderN />
-          <Page />
+          
           <Categories />
 
        
