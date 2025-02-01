@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import ListeCard from './ListeCards';
+import NotFound from './NotFound';
 import HeaderN from './Navbar';
 import SignUp from './SignUp';
 import SellerInfo from './SellerInfo';
@@ -17,9 +18,9 @@ import Managea from './Managea';
 import ManageValidation from './ManageValidation';
 import ManageUsers from './ManageUsers';
 import MyActiveAds from './MyActiveAds';
-import Categories from './Categories';
-import Page from './Page';
-
+//import Categories from './Categories';
+//import Page from './Page';
+//<Page />
 
 
 function App() {
@@ -29,11 +30,16 @@ function App() {
         <div>
           <HeaderN />
           
+<<<<<<< HEAD
           <Categories />
+=======
+         
+>>>>>>> 7433595142aa4dac8bd0750e856c5551ae838705
 
        
 
           <Routes>
+          <Route path="*" element={<NotFound />} />
             <Route path="/" element={<ListeCard />} />
             <Route path="/DashboardFinance" element={<DashboardFinance />} />
             <Route path="/managea" element={<Managea />} />

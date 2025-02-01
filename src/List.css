@@ -1,3 +1,24 @@
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+    gap: 20px; /* Adjust spacing between cards */
+    padding: 20px;
+}
+.card {
+    width: 100%; /* Ensure it takes full grid column */
+    
+}
+@media (max-width: 1024px) { /* For tablets */
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+    }
+}
+
+@media (max-width: 768px) { /* For mobile devices */
+    .cards-container {
+        grid-template-columns: repeat(1, 1fr); /* Single column */
+    }
+}
 .language-toggle {
     position: absolute;
     top: 200px; /* Adjust this value to set the image's vertical position */
@@ -5,6 +26,8 @@
     cursor: pointer;
     z-index: 10; /* Ensure it is above other content */
 }
+
+
 
 .language-toggle img {
     width: 50px;
@@ -24,7 +47,7 @@
 
 .banner-text {
     position: absolute;
-    top: 12%;
+    top: 20%;
     left: 50%;
     
     transform: translate(-50%, -50%);
@@ -44,7 +67,7 @@
 .select-container {
     position: relative;
     width: 150px; /* Adjusted width for better alignment */
-    margin-right: 40px;
+    margin-right: 20px;
 }
 
 /* Styled Select */

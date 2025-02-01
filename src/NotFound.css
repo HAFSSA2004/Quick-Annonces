@@ -6,7 +6,7 @@
   height: 100vh;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(135deg, #f8f8f8, #91908e);
+
   font-family: 'Arial', sans-serif;
   color: white;
   padding: 20px; /* Add some padding to prevent elements from touching the edges */
