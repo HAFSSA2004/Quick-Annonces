@@ -69,7 +69,14 @@ function AddAds() {
         </div>
       </div>
 
-      <form className="container" style={{ width: "71%", marginTop: "20px" }}>
+      <form className="container pt-4" style={{
+          width: "69%",
+          marginTop: "20px",
+  
+          border: "2px solid #ddd",  // Added border
+          borderRadius: "10px",       // Rounded corners
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Enhanced shadow
+        }}>
         <div className="form-group">
           <label className="form-label">Product Name</label>
           <input

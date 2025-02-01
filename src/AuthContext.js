@@ -16,6 +16,7 @@ export const AuthProvider = ({ children }) => {
     navigate("/addads"); // Ensure this matches the correct path
   };
   
+  
 
   const logout = () => {
     localStorage.removeItem("auth");

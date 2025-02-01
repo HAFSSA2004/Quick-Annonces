@@ -1,11 +1,11 @@
 // src/NotFound.js
 import React from 'react';
 import './NotFound.css';  // Link to the CSS file for styling
-import Navbar from "./Home";
+//import Navbar from "./Home";
 function NotFound() {
   return (
     <div>
-      <Navbar/>
+    
       <div className="not-found">
         <img className="not-found-image" src="notf.jpg" alt="Not Found" />
         <div className="text-container">

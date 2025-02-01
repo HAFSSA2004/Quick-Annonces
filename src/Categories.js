@@ -1,5 +1,5 @@
-import React from "react";
-import "./Categories.css"; // Si tu veux personnaliser avec du CSS
+import React, { useRef } from "react";
+import "./Categories.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const categories = [
@@ -12,18 +12,27 @@ const categories = [
 ];
 
 const Categories = () => {
+  const scrollRef = useRef(null);
+
+  
+
+ 
+
   return (
     <div className="ms-3 mt-5">
-      <h2>Top Categories</h2>
-      <div className="category-container d-flex flex-wrap">
-        {categories.map((category, index) => (
-          <div key={index} className="category-item text-center mx-2">
-            <a href={category.link}>
-              <img src={category.image} alt={category.name} className="category-image" />
-            </a>
-            <div className="category-description">{category.name}</div>
-          </div>
-        ))}
+      <h2 className="ms-4 mb-4">Top Categories</h2>
+      <div className="d-flex justify-content-center align-items-center">
+        <div ref={scrollRef} className="category-container d-flex">
+          {categories.map((category, index) => (
+            <div key={index} className="category-item text-center mx-2">
+              <a href={category.link}>
+                <img src={category.image} alt={category.name} className="category-image" />
+              </a>
+              <div className="category-description">{category.name}</div>
+            </div>
+          ))}
+        </div>
+        
       </div>
     </div>
   );
