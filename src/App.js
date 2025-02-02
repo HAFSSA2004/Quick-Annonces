@@ -50,7 +50,8 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
            
-            <Route path="/iteminformation" element={<ItemInformation />} />
+            <Route path="/iteminformation/:id" element={<ItemInformation />} />
+           
             <Route path="/addads" element={ 
               <ProtectedRoute>
                 <AddAds />

@@ -1,30 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CardsCategories from "./Cards";
 import { useLanguage } from "./LanguageContext"; // Import Language Context
 import './List.css';
 import Categories from './Categories';
-import Page from "./Page";
+import axios from "axios";
 
 function ListeCard() {
-    const heroStyle = {
-        backgroundImage: `url('/metting.jpg')`, 
-        backgroundSize: "cover",
-        width: "100%",
-        height: "350px",
-        color: "white", 
-        display: "flex",
-        marginTop: "15px", 
-        flexDirection: "column",
-        justifyContent: "left",
-        alignItems: "flex-start",
-        textAlign: "start",
-        backgroundPosition: "center",
-        position: "relative", // Ajout pour éviter des problèmes d'affichage
-      };
-    const { city, category, profils } = useSelector((state) => state);
+    const { city, category } = useSelector((state) => state);
     const dispatch = useDispatch();
     const { language, toggleLanguage } = useLanguage(); // Get language and toggle function
+
+    const [annonces, setAnnonces] = useState([]);
+
+    // Fetch data from Laravel API
+    useEffect(() => {
+        axios
+            .get("http://127.0.0.1:8000/api/annonces")
+            .then((response) => {
+                setAnnonces(response.data); // Store fetched annonces in state
+            })
+            .catch((error) => {
+                console.error("There was an error fetching the data: ", error);
+            });
+    }, []);
 
     // Define translations
     const translations = {
@@ -77,27 +76,21 @@ function ListeCard() {
 
     const t = translations[language]; // Get translations for the current language
 
-    // Filtering profiles based on selected city & category
-    const filteredProfiles = profils.filter((profil) => {
+    // Filtering annonces based on selected city & category
+    const filteredAnnonces = annonces.filter((annonce) => {
         return (
-            (city ? profil.location?.toLowerCase() === city.toLowerCase() : true) &&
-            (category ? profil.categorie?.toLowerCase().includes(category.toLowerCase()) : true)
+            (city ? annonce.location?.toLowerCase() === city.toLowerCase() : true) &&
+            (category ? annonce.categorie?.toLowerCase().includes(category.toLowerCase()) : true)
         );
     });
 
     return (
         <div>
-            
-            {/* { <div className="banner">
+            {/* Banner Section */}
+            <div className="banner">
                 <img src="/metting.jpg" alt="" className="banner-image" />
-                <p className="banner-text"></p>
-            </div>} */}
-            <section className="hero-section" style={heroStyle}>
-      <h3 className="hero-subtitle">
-      {t.banner} </h3>
-     
-      </section>
-            <Page />
+                <p className="banner-text">{t.banner}</p>
+            </div>
             <Categories />
 
             {/* Language Toggle with Flags */}
@@ -118,7 +111,6 @@ function ListeCard() {
                         className="form-selectc styled-select"
                         onChange={(e) => dispatch({ type: "SET_CITY", payload: e.target.value })}
                     >
-
                         <option value="">{t.filterBy}</option>
                         <option value="Tangier">{t.cities.Tangier}</option>
                         <option value="Casablanca">{t.cities.Casablanca}</option>
@@ -134,7 +126,6 @@ function ListeCard() {
                         className="form-selectc styled-select"
                         onChange={(e) => dispatch({ type: "SET_CATEGORY", payload: e.target.value })}
                     >
-
                         <option value="">{t.filterBy}</option>
                         <option value="Electronique">{t.categories.electronique}</option>
                         <option value="skincare">{t.categories.skincare}</option>
@@ -144,18 +135,15 @@ function ListeCard() {
             </div>
 
             {/* Cards Section */}
-            <h2 className="ms-5" style={{ borderBottom: '2px solid black' ,width:'200px'}}>All Categories</h2>
-
             <div className="cards-container">
-                {filteredProfiles.map((profil, index) => (
+                {filteredAnnonces.map((annonce, index) => (
                     <CardsCategories
                         key={index}
-                        id={profil.id}  // Ensure this is the correct field for the ID
-                        image={profil.image}
-                        title={profil.title}
-                        location={profil.location}
-                        description={profil.description}
-                        price={profil.price}
+                        image={annonce.image}
+                        title={annonce.title}
+                        location={annonce.location}
+                        description={annonce.description}
+                        price={annonce.price}
                     />
                 ))}
             </div>

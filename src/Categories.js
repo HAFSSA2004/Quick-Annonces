@@ -15,7 +15,7 @@ const categories = [
 const Categories = () => {
   return (
     <div className="ms-3 mt-5">
-      <h2 className="ms-4 mb-4">Top Categories</h2>
+      <h2 className="ms-4 mb-4" style={{ borderBottom: '2px solid black' ,width:'230px'}}>Top Categories</h2>
       <div className="d-flex justify-content-center align-items-center">
         <div className="category-container d-flex">
           {categories.map((category, index) => (

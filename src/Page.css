@@ -11,32 +11,13 @@
             margin-top: 100px;
         }
 
-        .search-bar {
-            overflow: hidden;
-            width: 50%; /* Set width to 50% */
-            margin-left:0px; /* Center the search bar */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
-         
-        }
-        .search-bar input {
-            border: none;
-            outline: none;
-            padding: 10px 15px;
-        }
-        .search-bar .input-group-text {
-            background-color: transparent;
-            border: none;
-            padding-right: 15px;
-        }
-        .search-bar .form-control {
-            border-radius: 5px; /* Ensure all sides are rounded */
-        }
-        
+       
         
 
         .filter-container {
             display: flex;
-            justify-content: en;
+            justify-content: end;
+            align-items: end;
             gap: 20px; /* Spacing between filter dropdowns */
             margin-top: 1rem; /* Space above filters */
         }

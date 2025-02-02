@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './CardStyle.css';
-function CardsCategories({ index, image, title, location, description, price }) {
+
+function CardsCategories({ id, image, title, location, description, price, datePoster }) {
     return (
         <div className="card">
-            {index === 0 ? (
-                <Link to="/iteminformation">
-                    <img src={image} alt={title} className="card-img-top" />
-                </Link>
-            ) : (
-                <img src={image} alt={title} className="card-img-top" />
-            )}
+            {/* Pass the annonce id dynamically in the Link */}
+            <Link to={`/iteminformation/${id}`}>
+    <img src={image} alt={title} className="card-img-top" />
+</Link>
+
+
             <div className="card-body">
                 <div className="title-location">
                     <h5 className="card-title">{title}</h5>
@@ -21,6 +21,7 @@ function CardsCategories({ index, image, title, location, description, price }) 
                 </div>
                 <p className="card-text">{description}</p>
                 <p className="price">{price}</p>
+                <p className="date">{datePoster}</p>
             </div>
         </div>
     );

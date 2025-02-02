@@ -9,7 +9,7 @@ const ManageValidation = () => {
 
   // Fonction pour supprimer un profil
   const handleDelete = (indexToDelete) => {
-    const updatedProfiles = profiles.filter((_, index) => index !== indexToDelete);
+    const updatedProfiles = profiles.filter((_, index) =>   index !== indexToDelete);
     setProfiles(updatedProfiles);
   };
 

@@ -1,25 +1,40 @@
-import React, { useState,useContext } from "react";
-import { Link } from "react-router-dom";
-import { AdsContext } from './AdsContext'; // Import the context
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AdsContext } from "./AdsContext"; // Import the context
+import { useAuth } from "./AuthContext"; // Import authentication hook
 
 function AddAds() {
   const { addAd } = useContext(AdsContext); // Get addAd from context
-  const [productN, setProductN] = useState('');
-  const [category, setCategory] = useState('');
-  const [aboutP, setAboutP] = useState('');
-  const [price, setPrice] = useState('');
-  const [location, setLocation] = useState('');
+  const { isAuthenticated } = useAuth(); // Check if user is logged in
+  const navigate = useNavigate(); // Navigation hook
+
+  const [productN, setProductN] = useState("");
+  const [category, setCategory] = useState("");
+  const [aboutP, setAboutP] = useState("");
+  const [price, setPrice] = useState("");
+  const [location, setLocation] = useState("");
   const [error, setError] = useState(false);
 
+  
+    
   const handleNext = (e) => {
+    e.preventDefault(); // Prevent default link behavior
+  
+    if (!isAuthenticated) {
+      alert("You must be logged in to add an ad.");
+      setTimeout(() => navigate("/login"), 100);
+      return;
+    }
+
     if (!productN || !category || !aboutP || !price || !location) {
-      e.preventDefault(); // Prevent navigation
       setError(true);
     } else {
       setError(false);
-      addAd({ productN, price }); // Add the ad to context
+      addAd({ productN, price });
+      navigate("/picture"); // Navigate manually after validation
     }
   };
+  
 
   return (
     <div className="container mt-4">
@@ -34,7 +49,7 @@ function AddAds() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            color:'black'
+            color: "black",
           }}
         >
           1. Product Info
@@ -69,14 +84,16 @@ function AddAds() {
         </div>
       </div>
 
-      <form className="container pt-4" style={{
+      <form
+        className="container pt-4"
+        style={{
           width: "69%",
           marginTop: "20px",
-  
-          border: "2px solid #ddd",  // Added border
-          borderRadius: "10px",       // Rounded corners
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Enhanced shadow
-        }}>
+          border: "2px solid #ddd",
+          borderRadius: "10px",
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+        }}
+      >
         <div className="form-group">
           <label className="form-label">Product Name</label>
           <input
@@ -141,20 +158,20 @@ function AddAds() {
           </div>
         )}
         <div className="text-center">
-          <Link
-            to="/picture"
-            onClick={handleNext}
-            className="btn btn-warning"
-            style={{
-              width: "100px",
-              color: "white",
-              marginBottom: "10px",
-              textDecoration: "none",
-            }}
-          >
-            Next
-          </Link>
-        </div>
+  <button
+    onClick={handleNext}
+    className="btn btn-warning"
+    style={{
+      width: "100px",
+      color: "white",
+      marginBottom: "10px",
+      textDecoration: "none",
+    }}
+  >
+    Next
+  </button>
+</div>
+
       </form>
     </div>
   );
