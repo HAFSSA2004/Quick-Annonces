@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {  FaTrash, FaEdit } from "react-icons/fa";git
-import { INITIAL_STATE } from "./Reducers/Filter";
+import { FaTrash, FaEdit } from "react-icons/fa";
+import { INITIAL_STATE } from "./Reducers/Filter"; // Assurez-vous que cet import est correct et que le chemin vers le fichier est valide
 
 const ManageValidation = () => {
   // Stocker les profils dans l'état local
@@ -68,7 +68,6 @@ const ManageValidation = () => {
                     </td>
                     <td>{profile.price}</td>
                     <td>
-                      
                       <button className="btn btn-warning btn-sm me-2" onClick={() => handleEdit(index)}>
                         <FaEdit />
                       </button>
