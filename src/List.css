@@ -49,7 +49,6 @@
     position: absolute;
     top: 20%;
     left: 50%;
-    
     transform: translate(-50%, -50%);
     color: white;
     font-size: 2rem;
@@ -66,15 +65,17 @@
 /* Select container with icon */
 .select-container {
     position: relative;
-    width: 150px; /* Adjusted width for better alignment */
+    width: 200px; /* Adjusted width for better alignment */
     margin-right: 20px;
+    right: 700px;
+    bottom: 400px;
 }
 
 /* Styled Select */
 .styled-select {
     width: 100%;
     padding: 10px 10px 10px 40px; /* Space for the icon */
-    font-size: 14px;
+    font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 15px;
     background-color: #f9f9f9;

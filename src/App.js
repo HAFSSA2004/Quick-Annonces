@@ -18,7 +18,7 @@ import Managea from './Managea';
 import ManageValidation from './ManageValidation';
 import ManageUsers from './ManageUsers';
 import MyActiveAds from './MyActiveAds';
-//import Categories from './Categories';
+import SportPage from './SportPage' ;
 //import Page from './Page';
 //<Page />
 
@@ -29,12 +29,6 @@ function App() {
       <DashboardContextProvider>  {/* Wrap your app or specific part of your app */}
         <div>
           <HeaderN />
-          
-<<<<<<< HEAD
-          <Categories />
-=======
-         
->>>>>>> 7433595142aa4dac8bd0750e856c5551ae838705
 
        
 
@@ -46,6 +40,7 @@ function App() {
             <Route path="/managevalidation" element={<ManageValidation />} />
             <Route path="/manageUsers" element={<ManageUsers />} />
             <Route path="/myActiveAds" element={<MyActiveAds />} />
+            <Route path="/sport" element={<SportPage />} />
 
 
             

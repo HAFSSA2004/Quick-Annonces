@@ -4,8 +4,24 @@ import CardsCategories from "./Cards";
 import { useLanguage } from "./LanguageContext"; // Import Language Context
 import './List.css';
 import Categories from './Categories';
+import Page from "./Page";
 
 function ListeCard() {
+    const heroStyle = {
+        backgroundImage: `url('/metting.jpg')`, 
+        backgroundSize: "cover",
+        width: "100%",
+        height: "350px",
+        color: "white", 
+        display: "flex",
+        marginTop: "15px", 
+        flexDirection: "column",
+        justifyContent: "left",
+        alignItems: "flex-start",
+        textAlign: "start",
+        backgroundPosition: "center",
+        position: "relative", // Ajout pour éviter des problèmes d'affichage
+      };
     const { city, category, profils } = useSelector((state) => state);
     const dispatch = useDispatch();
     const { language, toggleLanguage } = useLanguage(); // Get language and toggle function
@@ -71,11 +87,24 @@ function ListeCard() {
 
     return (
         <div>
-            {/* Banner Section */}
-            <div className="banner">
+            
+            {/* { <div className="banner">
                 <img src="/metting.jpg" alt="" className="banner-image" />
-                <p className="banner-text">{t.banner}</p>
-            </div>
+                <p className="banner-text"></p>
+            </div>} */}
+            <section className="hero-section" style={heroStyle}>
+      <h3 className="hero-subtitle">
+      {t.banner} </h3>
+      <div className="container mt-5">
+        <div className="input-group search-bar">
+          <input type="text" className="form-control" placeholder="Search..." />
+          <span className="input-group-text bg-white">
+            <i className="bi bi-search"></i> {/* Icône de recherche Bootstrap */}
+          </span>
+        </div>
+      </div>
+      </section>
+           
             <Categories />
 
             {/* Language Toggle with Flags */}
