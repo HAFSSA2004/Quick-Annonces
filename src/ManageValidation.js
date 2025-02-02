@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaCheckCircle, FaTrash, FaEdit } from "react-icons/fa";
+import {  FaTrash, FaEdit } from "react-icons/fa";git
 import { INITIAL_STATE } from "./Reducers/Filter";
 
 const ManageValidation = () => {
