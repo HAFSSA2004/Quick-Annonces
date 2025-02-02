@@ -104,7 +104,7 @@ function ListeCard() {
         </div>
       </div>
       </section>
-           
+            <Page />
             <Categories />
 
             {/* Language Toggle with Flags */}
