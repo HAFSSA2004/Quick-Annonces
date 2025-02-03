@@ -22,6 +22,8 @@ function ListeCard() {
         backgroundPosition: "center",
         position: "relative", // Ajout pour éviter des problèmes d'affichage
       };
+    
+    
     const { city, category, profils } = useSelector((state) => state);
     const dispatch = useDispatch();
     const { language, toggleLanguage } = useLanguage(); // Get language and toggle function
