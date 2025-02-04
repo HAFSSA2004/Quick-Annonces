@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
-import axios from 'axios';
 import { FaPhone, FaEnvelope } from 'react-icons/fa';
-
+//import { INITIAL_STATE } from './path_to_initial_state'; // Make sure to import the INITIAL_STATE
+//import { INITIAL_STATE } from ''
+import { INITIAL_STATE } from './Reducers/Filter';
 function ItemInformation() {
     const { id } = useParams();
     const navigate = useNavigate(); // Initialize navigate function
@@ -11,13 +12,14 @@ function ItemInformation() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/annonces/${id}`)
-            .then(response => {
-                setAnnonce(response.data);
-            })
-            .catch(() => {
-                setError('Failed to load data');
-            });
+        // Find the annonce based on the id from the profiles
+        const annonceData = INITIAL_STATE.profils.find(ad => ad.id === parseInt(id));
+
+        if (annonceData) {
+            setAnnonce(annonceData);
+        } else {
+            setError('Annonce not found');
+        }
     }, [id]);
 
     const handleModalOpen = () => {
@@ -93,5 +95,3 @@ function ItemInformation() {
 }
 
 export default ItemInformation;
-
-
