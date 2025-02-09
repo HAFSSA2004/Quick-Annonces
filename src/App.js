@@ -19,8 +19,8 @@ import ManageValidation from './ManageValidation';
 import ManageUsers from './ManageUsers';
 import MyActiveAds from './MyActiveAds';
 import SportPage from './SportPage' ;
-//import Page from './Page';
-//<Page />
+import TechnoPage from './TechnoPage';
+import CarPage from './CarPage';
 
 //cloud
 function App() {
@@ -41,6 +41,8 @@ function App() {
             <Route path="/manageUsers" element={<ManageUsers />} />
             <Route path="/myActiveAds" element={<MyActiveAds />} />
             <Route path="/sport" element={<SportPage />} />
+            <Route path="/techno" element={<TechnoPage />} />
+            <Route path="/car" element={<CarPage />} />
 
 
             

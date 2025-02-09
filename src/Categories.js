@@ -5,8 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const categories = [
   { name: "Sport", image: "shoes.png", link: "/sport" },
-  { name: "Technology", image: "tech.jpg", link: "#" },
-  { name: "Car", image: "car.jpg", link: "#" },
+  { name: "Technology", image: "tech.jpg", link: "/techno" },
+  { name: "Car", image: "car.jpg", link: "/car" },
   { name: "Clothes", image: "clothes.jpg", link: "#" },
   { name: "Skincare", image: "skincare.png", link: "#" },
   { name: "Pet Product", image: "pet.png", link: "#" },
