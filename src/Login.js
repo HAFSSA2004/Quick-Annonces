@@ -1,14 +1,11 @@
-
 import React, { useState } from "react";
 import { useAuth } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
 import './SignUp.css';
 
 const Login = () => {
-  
   const { login } = useAuth();
   const [formData, setFormData] = useState({
-    
     email: "",
     password: "",
     isAdmin: false,
@@ -38,23 +35,19 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      login();  // No need to pass formData.username here
+      login();
       if (formData.isAdmin && formData.adminKey === "123") {
         navigate("/DashboardFinance");
       } else {
-        navigate("/"); // Default redirect after login
+        navigate("/");
       }
     }
   };
-  
-  
 
   return (
     <div className="signup-container">
-      <h2 className="signup-title ">Login</h2>
+      <h2 className="signup-title">Login</h2>
       <form onSubmit={handleSubmit} className="signup-form">
-        
-
         <div className="form-group">
           <label>Email</label>
           <input
@@ -81,8 +74,7 @@ const Login = () => {
           {errors.password && <small className="error-text">{errors.password}</small>}
         </div>
 
-      
-          <div className="inp">
+        <div className="inp">
           <input
             type="checkbox"
             name="isAdmin"
@@ -90,8 +82,8 @@ const Login = () => {
             onChange={handleChange}
             className="form-check-input"
           />
-          <label className="form-check-label" style={{marginTop:'2px',marginLeft:'5px'}}>Login as Admin</label>
-          </div>
+          <label className="form-check-label" style={{ marginTop: '2px', marginLeft: '5px' }}>Login as Admin</label>
+        </div>
 
         {formData.isAdmin && (
           <div className="form-group">
@@ -106,27 +98,16 @@ const Login = () => {
             />
             {errors.adminKey && <small className="error-text">{errors.adminKey}</small>}
           </div>
-        )}  <br />
+        )}
+        <br />
 
-        <button type="submit" className="btn c1">Login</button> 
+        <button type="submit" className="btn c1">Login</button>
       </form><br />
-      <button type="button" className="btn-google c1 ">
-      
-      Continue with Google
-      </button>
+      <button type="button" className="btn-google c1">Continue with Google</button>
       <p className="login-redirect">
-      Don’t have an acount??{" "}
-      <span
-        className="login-link"
-        onClick={() => navigate("/signup")}
-      >
-        ?Sign Up  here
-      </span>
-    </p>
-
-
+        Don’t have an account? <span className="login-link" onClick={() => navigate("/signup")}>Sign Up here</span>
+      </p>
     </div>
-    
   );
 };
 

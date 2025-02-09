@@ -1,12 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext ,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { AdsContext } from "./AdsContext"; // Import the context
 import { useAuth } from "./AuthContext"; // Import authentication hook
 
 function AddAds() {
-  const { addAd } = useContext(AdsContext); // Get addAd from context
-  const { isAuthenticated } = useAuth(); // Check if user is logged in
-  const navigate = useNavigate(); // Navigation hook
+  const { addAd } = useContext(AdsContext);
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
   const [productN, setProductN] = useState("");
   const [category, setCategory] = useState("");
@@ -15,25 +15,33 @@ function AddAds() {
   const [location, setLocation] = useState("");
   const [error, setError] = useState(false);
 
-  
-    
-  const handleNext = (e) => {
-    e.preventDefault(); // Prevent default link behavior
-  
-    if (!isAuthenticated) {
-      alert("You must be logged in to add an ad.");
-      setTimeout(() => navigate("/login"), 100);
-      return;
+  // 🚨 Redirection avec un léger délai pour s'assurer que l'alerte s'affiche
+  useEffect(() => {
+    if (isAuthenticated === false) {  // Ensure it waits for the correct value
+      setTimeout(() => {
+        alert("You need to log in first!");
+        navigate("/login");
+      }, 500);
     }
-
+  }, [isAuthenticated, navigate]);
+  
+  const handleNext = (e) => {
+    e.preventDefault();
     if (!productN || !category || !aboutP || !price || !location) {
       setError(true);
     } else {
       setError(false);
       addAd({ productN, price });
-      navigate("/picture"); // Navigate manually after validation
+      navigate("/picture");
     }
   };
+
+  // Empêcher l'affichage immédiat du formulaire pour tester l'alerte
+  if (!isAuthenticated) {
+    alert("You need to log in first!");
+    navigate("/login");
+    return null;
+  }
   
 
   return (

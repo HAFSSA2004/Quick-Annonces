@@ -5,7 +5,7 @@ import { useLanguage } from "./LanguageContext"; // Import Language Context
 import './List.css';
 import Categories from './Categories';
 import Page from "./Page";
-
+import InfoCards from "./InfoCards";
 function ListeCard() {
     const heroStyle = {
         backgroundImage: `url('/metting.jpg')`, 
@@ -31,7 +31,7 @@ function ListeCard() {
     // Define translations
     const translations = {
         en: {
-            banner: "Exclusive deals, premium finds—your perfect marketplace awaits",
+            banner: "Exclusive deals, premium finds your perfect marketplace awaits",
             filterBy: "Filter By",
             categories: {
                 electronique: "Electronics",
@@ -161,6 +161,7 @@ function ListeCard() {
                     />
                 ))}
             </div>
+            <InfoCards/>
         </div>
     );
 }

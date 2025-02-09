@@ -74,42 +74,43 @@ const TechnoPage = () => {
 
   return (
     <div className="container mt-5">
-      <h3
-      style={{ 
-        color: "#4A00E0", 
-        backgroundColor:"black",
+    <h3
+      style={{
+        color: "#4A00E0",
+        backgroundColor: "black",
         WebkitBackgroundClip: "text",
         WebkitTextFillColor: "transparent",
         fontSize: "2rem",
         fontWeight: "bold",
         letterSpacing: "2px",
         textTransform: "uppercase",
-        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)"
+        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
       }}
-      >TOP ADS FOR TECHNOLOGIE</h3>
-      <div className="row mt-4">
-        {ads.map((ad) => (
-          <div className="col-md-3" key={ad.id}>
-            <div className="card">
-              <img src={ad.image} className="card-img-top "  alt={ad.title} />
-              <div className="card-body">
-                <div className="title d-flex justify-content-between align-items-center">
-                  <h5 className="card-title">{ad.title}</h5>
-                  <span className="location text-danger">
-                    <i className="bi bi-geo-alt-fill"></i> {ad.location}
-                  </span>
-                </div>
-                <p className="card-text">{ad.description}</p>
-                <p className="card-text price">
-                  <strong>Price:</strong> {ad.price}
-                </p>
+    >
+      TOP ADS FOR TECHNOLOGIE    </h3>
+    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mt-4">
+      {ads.map((ad) => (
+        <div className="col" key={ad.id}>
+          <div className="card h-100 shadow-sm">
+            <img src={ad.image} className="card-img-top" alt={ad.title} />
+            <div className="card-body d-flex flex-column">
+              <div className="title d-flex justify-content-between align-items-center">
+                <h5 className="card-title">{ad.title}</h5>
+                <span className="location text-danger">
+                  <i className="bi bi-geo-alt-fill"></i> {ad.location}
+                </span>
               </div>
+              <p className="card-text flex-grow-1">{ad.description}</p>
+              <p className="card-text price">
+                <strong>Price:</strong> {ad.price}
+              </p>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
-  );
+  </div>
+);
 };
 
 export default TechnoPage;

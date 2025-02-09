@@ -8,7 +8,7 @@ import ItemInformation from './ItemInformation';
 import AddAds from './AddAds';
 import Picture from './Picture';
 import MyAdds from './MyAdds';
-import ProtectedRoute from './ProtectedRoute';  // Import the ProtectedRoute
+//import ProtectedRoute from './ProtectedRoute';  // Import the ProtectedRoute
 import { AuthProvider } from './AuthContext';
 import DashboardFinance from './DashboardFinance/DashboardFinance';
 import Login from './Login';
@@ -21,8 +21,13 @@ import MyActiveAds from './MyActiveAds';
 import SportPage from './SportPage' ;
 import TechnoPage from './TechnoPage';
 import CarPage from './CarPage';
+import { Navigate } from "react-router-dom";
+import { useAuth } from "./AuthContext";
 
-//cloud
+function PrivateRoute({ children }) {
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? children : <Navigate to="/login" replace />;
+}
 function App() {
   return (
     <AuthProvider>
@@ -55,9 +60,9 @@ function App() {
             <Route path="/iteminformation/:id" element={<ItemInformation />} />
            
             <Route path="/addads" element={ 
-              <ProtectedRoute>
-                <AddAds />
-              </ProtectedRoute>
+              <PrivateRoute>
+              <AddAds />
+            </PrivateRoute>
             } />
             <Route path="/picture" element={<Picture />} />
             <Route path='/seller-info' element={<SellerInfo />} />

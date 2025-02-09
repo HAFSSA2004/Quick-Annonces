@@ -72,65 +72,34 @@ const CarPage = () => {
 
   return (
     <div className="container mt-5">
-      {/* Titre stylisé et centré */}
-      <h3 
-  className="text-center fw-bold mb-4"
-  style={{ 
-    color: "#4A00E0", 
-    backgroundColor:"black",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    fontSize: "2rem",
-    fontWeight: "bold",
-    letterSpacing: "2px",
-    textTransform: "uppercase",
-    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)"
-  }}
->
-Découvrez Nos Meilleures Offres Auto ! 
-</h3>
-
-
-      {/* Première ligne d'annonces */}
-      <div className="row justify-content-center">
-        {ads.slice(0, 4).map((ad) => (
-          <div className="col-md-3 mb-4" key={ad.id}>
-            <div className="card shadow-sm">
+      <h3
+        style={{
+          color: "#4A00E0",
+          backgroundColor: "black",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          fontSize: "2rem",
+          fontWeight: "bold",
+          letterSpacing: "2px",
+          textTransform: "uppercase",
+          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
+        }}
+      >
+        TOP ADS FOR CARS
+      </h3>
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mt-4">
+        {ads.map((ad) => (
+          <div className="col" key={ad.id}>
+            <div className="card h-100 shadow-sm">
               <img src={ad.image} className="card-img-top" alt={ad.title} />
-              <div className="card-body">
+              <div className="card-body d-flex flex-column">
                 <div className="title d-flex justify-content-between align-items-center">
                   <h5 className="card-title">{ad.title}</h5>
                   <span className="location text-danger">
                     <i className="bi bi-geo-alt-fill"></i> {ad.location}
                   </span>
                 </div>
-                <p className="card-text">{ad.description}</p>
-                <p className="card-text price">
-                  <strong>Price:</strong> {ad.price}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Espace entre les groupes d'annonces */}
-      <div className="my-4"></div>
-
-      {/* Deuxième ligne d'annonces */}
-      <div className="row justify-content-center">
-        {ads.slice(4, 8).map((ad) => (
-          <div className="col-md-3 mb-4" key={ad.id}>
-            <div className="card shadow-sm">
-              <img src={ad.image} className="card-img-top" alt={ad.title} />
-              <div className="card-body">
-                <div className="title d-flex justify-content-between align-items-center">
-                  <h5 className="card-title">{ad.title}</h5>
-                  <span className="location text-danger">
-                    <i className="bi bi-geo-alt-fill"></i> {ad.location}
-                  </span>
-                </div>
-                <p className="card-text">{ad.description}</p>
+                <p className="card-text flex-grow-1">{ad.description}</p>
                 <p className="card-text price">
                   <strong>Price:</strong> {ad.price}
                 </p>
@@ -140,6 +109,7 @@ Découvrez Nos Meilleures Offres Auto !
         ))}
       </div>
     </div>
+  
   );
 };
 
