@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom"; // Import Link for navigation
 import BarChart from "../Components/AllChart/BarChart";
 import PieChart from "../Components/AllChart/PieChart";
 import { DashboardContext } from "../context/DashboardContext";
