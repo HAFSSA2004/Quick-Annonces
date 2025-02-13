@@ -24,75 +24,9 @@ const DashboardFinance = () => {
     <div className="global-container mt-5">
 
 
-      
-      {/* Links to manage announce and dashboard */}
-      <div
-  className="links-container"
-  style={{
-    display: "flex",
-    justifyContent: "center",
-    gap: "20px",
-    marginBottom: "30px",
-    padding: "10px 0",
-  }}
->
-  <Link to="/managea">
-    <button
-      className="cute-button p-3 text-white"
-      style={{
-        border: "none",
-        borderRadius: "50px",
-        backgroundColor: "#FF4081", // Coral orange
-        fontSize: "1.2rem",
-        fontWeight: "bold",
-        padding: "12px 30px",
-        transition: "all 0.3s ease",
-        boxShadow: "0 6px 12px rgba(0, 0, 0, 0.1)",
-        cursor: "pointer",
-        textTransform: "uppercase",
-      }}
-      onMouseOver={(e) => {
-        e.target.style.transform = "translateY(-5px)";
-        e.target.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.15)";
-      }}
-      onMouseOut={(e) => {
-        e.target.style.transform = "translateY(0)";
-        e.target.style.boxShadow = "0 6px 12px rgba(0, 0, 0, 0.1)";
-      }}
-    >
-      Manage Announcements
-    </button>
-  </Link>
+    
 
-  <Link to="/DashboardFinance">
-    <button
-      className="cute-button p-3 text-white"
-      style={{
-        border: "none",
-        borderRadius: "50px",
-        backgroundColor: "#FF4081", // Soft pink
-        fontSize: "1.2rem",
-        fontWeight: "bold",
-        padding: "12px 30px",
-        transition: "all 0.3s ease",
-        boxShadow: "0 6px 12px rgba(0, 0, 0, 0.1)",
-        cursor: "pointer",
-        textTransform: "uppercase",
-      }}
-      onMouseOver={(e) => {
-        e.target.style.transform = "translateY(-5px)";
-        e.target.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.15)";
-      }}
-      onMouseOut={(e) => {
-        e.target.style.transform = "translateY(0)";
-        e.target.style.boxShadow = "0 6px 12px rgba(0, 0, 0, 0.1)";
-      }}
-   
-    >
-      Manage Dashboard
-    </button>
-  </Link>
-</div>
+  
 
       
 

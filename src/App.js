@@ -68,6 +68,7 @@ function App() {
             <Route path='/seller-info' element={<SellerInfo />} />
             <Route path='/Myadds' element={<MyAdds />} />
             
+            
           </Routes>
           <br /><br />
           <Footer />

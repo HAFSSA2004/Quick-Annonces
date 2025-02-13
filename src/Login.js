@@ -37,7 +37,7 @@ const Login = () => {
     if (validateForm()) {
       login();
       if (formData.isAdmin && formData.adminKey === "123") {
-        navigate("/DashboardFinance");
+        navigate("/managea");
       } else {
         navigate("/");
       }

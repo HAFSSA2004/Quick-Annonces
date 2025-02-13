@@ -35,13 +35,26 @@ const ManageValidation = () => {
         {/* Sidebar */}
         <div className="col-12 col-md-3 p-3">
           <div className="d-flex flex-column align-items-start">
-            <button className="sidebar-button">Validated Adds</button>
+            <button className="sidebar-button text-warning bg-white"
+            style={{
+              alignItems:"center",
+              borderRadius: "50px",
+              marginTop:"100px",
+              fontSize: "2.5rem", 
+              fontWeight: "bold",
+
+              padding: "12px 30px",
+              transition: "all 0.3s ease",
+              cursor: "pointer",
+              textTransform: "uppercase",
+              width: '350px',
+            }}>Validated Adds</button>
           </div>
         </div>
 
         {/* Contenu principal */}
         <div className="col-12 col-md-9 p-4">
-          <h2 className="text-warning text-center">Manage Validation</h2>
+          
 
           {/* Table responsive */}
           <div className="table-responsive">
