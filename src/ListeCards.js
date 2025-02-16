@@ -8,10 +8,12 @@ import Page from "./Page";
 import InfoCards from "./InfoCards";
 function ListeCard() {
     const heroStyle = {
-        backgroundImage: `url('/metting.jpg')`, 
+        backgroundImage: `url('/back2.jpg')`, 
+        /** backgroundImage: `url('/bac.png')`,  */
+         /** backgroundImage: `url('/im.png')`,  */
         backgroundSize: "cover",
         width: "100%",
-        height: "350px",
+        height: "410px",
         color: "white", 
         display: "flex",
         marginTop: "15px", 
@@ -146,7 +148,7 @@ function ListeCard() {
             </div>
 
             {/* Cards Section */}
-            <h2 className="ms-5" style={{ borderBottom: '2px solid black' ,width:'200px'}}>All Categories</h2>
+            <h2 className="ms-5" style={{ borderBottom: '2px solid black' ,width:'210px'}}>All Categories</h2>
 
             <div className="cards-container">
                 {filteredProfiles.map((profil, index) => (
